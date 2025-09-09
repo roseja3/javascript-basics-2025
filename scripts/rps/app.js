@@ -41,3 +41,62 @@ const selectComputerWeapon = function () {
 	// don't know what random number is choosing!
 	throw "Unknown weapon";
 };
+
+function decideResults(player, computer) {
+	// create a result object to hold the
+	// default state of the outcome of the
+	// battle
+	let result = {
+		isTie: false,
+		playerWon: false,
+		description: "",
+	};
+
+	// this is for a tie
+	if (player == computer) {
+		result.isTie = true;
+		result.description = "It's a tie!";
+		// return the tie result
+		return result;
+	}
+
+	// rock beats scissors
+	if (player == ROCK && computer == SCISSORS) {
+		result.playerWon = true;
+		result.description = "rock crushes scissors";
+		return result;
+	}
+
+	// paper beats rock
+	if (player == PAPER && computer == ROCK) {
+		result.playerWon = true;
+		result.description = "paper covers rock";
+		return result;
+	}
+
+	// scissors beats paper
+	if (player == SCISSORS && computer == PAPER) {
+		result.playerWon = true;
+		result.description = "scissors cuts paper";
+		return result;
+	}
+
+	// computer wins
+	// rock beats scissors
+	if (computer == ROCK && player == SCISSORS) {
+		result.description = "rock crushes scissors";
+		return result;
+	}
+
+	// paper beats rock
+	if (computer == PAPER && player == ROCK) {
+		result.description = "paper covers rock";
+		return result;
+	}
+
+	// scissors beats paper
+	if (computer == SCISSORS && player == PAPER) {
+		result.description = "scissors cuts paper";
+		return result;
+	}
+}
