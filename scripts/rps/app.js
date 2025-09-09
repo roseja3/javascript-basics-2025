@@ -14,9 +14,16 @@ let aftermathElement = document.getElementById("aftermath");
 
 const pickWeapon = function (weapon) {
 	console.log("Player picked", weapon);
+
+	// get a random computer weapon and assign
+	// it the the computerWeapon variable
+	let computerWeapon = selectComputerWeapon();
+	console.log("Computer picked", computerWeapon);
 };
 
 const selectComputerWeapon = function () {
+	// this will give us a random number
+	// between 0 and 3
 	const rand = Math.floor(Math.random() * 3);
 
 	if (rand == 0) {
@@ -27,5 +34,10 @@ const selectComputerWeapon = function () {
 		return PAPER;
 	}
 
-	return SCISSORS;
+	if (rand == 2) {
+		return SCISSORS;
+	}
+
+	// don't know what random number is choosing!
+	throw "Unknown weapon";
 };
