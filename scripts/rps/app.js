@@ -10,15 +10,29 @@ const ROCK = "rock";
 const PAPER = "paper";
 const SCISSORS = "scissors";
 
+/** @type { HTMLElement } */
+//@ts-ignore checking for null below
 let aftermathElement = document.getElementById("aftermath");
+if (aftermathElement == null) {
+	throw "aftermath is not defined! Check your HTML!!";
+}
 
 const pickWeapon = function (weapon) {
+	let aftermathText = `Player picked ${weapon}. `;
 	console.log("Player picked", weapon);
 
 	// get a random computer weapon and assign
 	// it the the computerWeapon variable
 	let computerWeapon = selectComputerWeapon();
 	console.log("Computer picked", computerWeapon);
+	aftermathText = aftermathText + `Computer picked ${computerWeapon}. `;
+
+	// get results object from decideResults function
+	let results = decideResults(weapon, computerWeapon);
+	console.log("Battle results", results);
+
+	if (results.isTie) {
+	}
 };
 
 const selectComputerWeapon = function () {
@@ -99,4 +113,7 @@ function decideResults(player, computer) {
 		result.description = "scissors cuts paper";
 		return result;
 	}
+
+	result.description = "Don't know what happened!";
+	return result;
 }
