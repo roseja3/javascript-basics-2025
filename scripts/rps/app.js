@@ -31,8 +31,18 @@ const pickWeapon = function (weapon) {
 	let results = decideResults(weapon, computerWeapon);
 	console.log("Battle results", results);
 
+	let winner = "";
 	if (results.isTie) {
+		winner = results.description;
+	} else if (results.playerWon) {
+		winner = "Player wins! W00t!!";
+	} else {
+		winner = "Computer wins! BEEP BOOP BEEP!!";
 	}
+
+	aftermathText += `${winner} Because ${results.description}.`;
+
+	aftermathElement.textContent = aftermathText;
 };
 
 const selectComputerWeapon = function () {
