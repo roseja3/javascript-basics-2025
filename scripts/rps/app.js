@@ -10,6 +10,10 @@ const ROCK = "rock";
 const PAPER = "paper";
 const SCISSORS = "scissors";
 
+let tieCount = 0;
+let winCount = 0;
+let lossCount = 0;
+
 /** @type { HTMLElement } */
 //@ts-ignore checking for null below
 let aftermathElement = document.getElementById("aftermath");
@@ -33,14 +37,17 @@ const pickWeapon = function (weapon) {
 
 	let winner = "";
 	if (results.isTie) {
+		tieCount = tieCount + 1;
 		winner = results.description;
 	} else if (results.playerWon) {
+		winCount += 1;
 		winner = "Player wins! W00t!!";
 	} else {
+		lossCount++;
 		winner = "Computer wins! BEEP BOOP BEEP!!";
 	}
 
-	aftermathText += `${winner} Because ${results.description}.`;
+	aftermathText += `${winner} Because ${results.description}. Current tally: ties [${tieCount}] wins [${winCount}] losses [${lossCount}]`;
 
 	aftermathElement.textContent = aftermathText;
 };
