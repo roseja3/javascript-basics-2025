@@ -7,27 +7,55 @@
 		<link rel="stylesheet" href="css/style.css" />
 		<style>
 			body {
-
-				background-color: rgb(255, 140, 224);
-				color: #ffc1fa;
-				font-family:fantasy ;
+				background-color: bisque;
+				color: brown;
+				font-family: Cambria, Cochin, Georgia, Times, "Times New Roman",
+					serif;
 			}
 
 			button {
-				color: #ffc1fa;
+				color: royalblue;
 				padding: 5px;
-				box-shadow: 2px 2px 2px hwb(316 36% 0%);
+				box-shadow: 2px 2px 2px black;
 			}
 
 			.button-container {
+				border: 1px solid black;
 				margin: 20px;
 				padding: 10px;
+			}
+
+			.scoreboard {
+				display: flex;
+				flex-direction: row;
+			}
+
+			.scoreboard > div {
+				border: solid 2px orange;
+				margin: 10px;
+				padding: 10px;
+				justify-content: center;
+				align-items: center;
 			}
 		</style>
 	</head>
 	<body>
 		<h1>Rock, Paper, Scissors</h1>
 
+		<div class="scoreboard">
+			<div>
+				WINS
+				<div id="win-count">0</div>
+			</div>
+			<div>
+				TIES
+				<div id="tie-count">0</div>
+			</div>
+			<div>
+				LOSSES
+				<div id="loss-count">0</div>
+			</div>
+		</div>
 		<div class="button-container">
 			<button onclick="pickWeapon(ROCK)">Rock</button>
 			<button onclick="pickWeapon(PAPER)">Paper</button>

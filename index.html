@@ -1,32 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-	<!-- Start of the head tag. Stuff in here will not be visible on the page 
-    but is important for the browser to know how to render the page -->
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-		<!-- Title of the page, this shows up in the browser tab -->
-		<title>JavaScript Basics</title>
-
-		<!-- Link to the CSS file for styling -->
+		<title>Rock Paper Scissors Battle Supreme</title>
 		<link rel="stylesheet" href="css/style.css" />
+		<style>
+			body {
+				background-color: bisque;
+				color: brown;
+				font-family: Cambria, Cochin, Georgia, Times, "Times New Roman",
+					serif;
+			}
+
+			button {
+				color: royalblue;
+				padding: 5px;
+				box-shadow: 2px 2px 2px black;
+			}
+
+			.button-container {
+				border: 1px solid black;
+				margin: 20px;
+				padding: 10px;
+			}
+
+			.scoreboard {
+				display: flex;
+				flex-direction: row;
+			}
+
+			.scoreboard > div {
+				border: solid 2px orange;
+				margin: 10px;
+				padding: 10px;
+				justify-content: center;
+				align-items: center;
+			}
+		</style>
 	</head>
-	<!-- End of the head tag -->
-
-	<!-- Start of the body tag, stuff in here will render to the page -->
 	<body>
-		<!-- Main title displayed on the web page -->
-		<h1>JavaScript Basics</h1>
+		<h1>Rock, Paper, Scissors</h1>
 
-		<h2>Hello world from HTML</h2>
+		<div class="scoreboard">
+			<div>
+				WINS
+				<div id="win-count">0</div>
+			</div>
+			<div>
+				TIES
+				<div id="tie-count">0</div>
+			</div>
+			<div>
+				LOSSES
+				<div id="loss-count">0</div>
+			</div>
+		</div>
+		<div class="button-container">
+			<button onclick="pickWeapon(ROCK)">Rock</button>
+			<button onclick="pickWeapon(PAPER)">Paper</button>
+			<button onclick="pickWeapon(SCISSORS)">Scissors</button>
+		</div>
 
-		<p>
-			<a href="rps.html">Rock, Paper, Scissors Game</a>
-		</p>
+		<div id="aftermath">Battle Results</div>
 
 		<!-- Link to your JavaScript file -->
-		<script src="scripts/app.js"></script>
+		<script src="scripts/rps/app.js"></script>
 	</body>
-	<!-- End of the body tag -->
 </html>
